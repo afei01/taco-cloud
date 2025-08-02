@@ -9,7 +9,7 @@ import java.util.List;
 public class Taco {
     private Long id;
     private String name;
-    private List<Ingredient> ingredients;
+    private List<IngredientRef> ingredients;
     private Date createdAt = new Date();
 }
 

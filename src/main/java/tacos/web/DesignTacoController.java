@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tacos.Ingredient;
 import tacos.Taco;
@@ -61,7 +63,8 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+    public String processTaco(@Validated Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder) {
+        if (errors.hasErrors()) { return "design"; }
         tacoOrder.addTaco(taco);
         log.info("Processed taco: {}" , taco);
         return "redirect:/orders/current";

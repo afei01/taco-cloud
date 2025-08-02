@@ -14,10 +14,10 @@ import tacos.data.OrderRepository;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 public class OrderController {
-    private final OrderRepository orderRepository;
+    private final OrderRepository orderRepo;
 
-    public OrderController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    public OrderController(OrderRepository orderRepo) {
+        this.orderRepo = orderRepo;
     }
 
     @GetMapping("/current")
@@ -31,7 +31,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
-        orderRepository.save(order);
+        orderRepo.save(order);
         sessionStatus.setComplete();
 
         return "redirect:/";

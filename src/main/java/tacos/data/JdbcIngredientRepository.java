@@ -11,7 +11,7 @@ import tacos.Ingredient;
 
 @Repository
 public class JdbcIngredientRepository implements IngredientRepository {
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -30,7 +30,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 
     @Override
     public Ingredient save(Ingredient ingredient) {
-        jdbcTemplate.update("insert into Ingredient (id,name, type) values (?, ?, ?)", ingredient.getId(),ingredient.getName(), ingredient.getType().toString());
+        jdbcTemplate.update("insert into Ingredient (id, name, type) values (?, ?, ?)", ingredient.getId(),ingredient.getName(), ingredient.getType().toString());
         return ingredient;
     }
 

@@ -21,7 +21,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
 //        ingredientMap.put("SLSA",new Ingredient("SLSA","Salsa", Ingredient.Type.WRAP));
 //        ingredientMap.put("SRCR",new Ingredient("SRCR","Sour Cream", Ingredient.Type.WRAP));
 //    }
-    private IngredientRepository ingredientRepo;
+    private final IngredientRepository ingredientRepo;
 
     @Autowired
     public IngredientByIdConverter(IngredientRepository ingredientRepo){

@@ -1,8 +1,6 @@
-package demo.tacocloud.taco;
+package tacos;
 
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class Ingredient {

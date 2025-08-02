@@ -1,10 +1,10 @@
-package demo.tacocloud.controller;
+package tacos.web;
 
-import demo.tacocloud.taco.TacoOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import tacos.TacoOrder;
 
 @Slf4j
 @Controller
